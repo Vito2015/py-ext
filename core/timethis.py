@@ -2,7 +2,8 @@
 """
     py-ext.core.timethis
     ~~~~~~~~~~~~~~~~~~~~
-    py-ext core package
+    py-ext core timethis lib
+
     :copyright: (c) 2016 by Vito.
     :license: GNU, see LICENSE for more details.
 """
