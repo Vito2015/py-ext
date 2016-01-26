@@ -1,4 +1,12 @@
-# coding:utf-8
+# coding: utf-8
+"""
+    py-ext.core.fieldref
+    ~~~~~~~~~~~~~~~~~~~~
+    py-ext core fieldref lib
+
+    :copyright: (c) 2016 by Vito.
+    :license: GNU, see LICENSE for more details.
+"""
 from weakref import WeakKeyDictionary
 
 
