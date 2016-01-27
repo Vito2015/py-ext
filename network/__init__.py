@@ -10,4 +10,4 @@
 
 import core.log as log
 
-log.set_logger(name='py-ext.network', with_filehandler=False)
+log.set_logger(name='py-ext.network',  with_filehandler=False)

@@ -1,7 +1,7 @@
 # coding: utf-8
 """
-    py-ext.core.fieldref
-    ~~~~~~~~~~~~~~~~~~~~
+    py-ext.core.log
+    ~~~~~~~~~~~~~~~
     Implements a simple log library.
 
     This module is a simple encapsulation of logging module to provide a more
@@ -52,14 +52,26 @@
     :license: GNU, see LICENSE for more details.
 """
 
-__all__ = ['set_logger', 'debug', 'info', 'warning', 'error',
-           'critical', 'exception']
- 
+_logging_funcs = ['debug', 'info', 'warning', 'error', 'critical', 'exception']
+__all__ = ['set_logger', 'disable'] + _logging_funcs
+
+
 import os
 import sys
 import logging
 import logging.handlers
- 
+
+
+# logging levels
+CRITICAL = logging.CRITICAL
+FATAL = logging.FATAL
+ERROR = logging.ERROR
+WARNING = logging.WARNING
+WARN = logging.WARN
+INFO = logging.INFO
+DEBUG = logging.DEBUG
+NOTSET = logging.NOTSET
+
 # Color escape string
 COLOR_RED = '\033[1;31m'
 COLOR_GREEN = '\033[1;32m'
@@ -110,9 +122,9 @@ def add_handler(cls, level, fmt, colorful, **kwargs):
     handler.setLevel(level)
  
     if colorful:
-        formatter = ColoredFormatter(fmt)
+        formatter = ColoredFormatter(fmt, datefmt='%Y-%m-%d %H:%M:%S')
     else:
-        formatter = logging.Formatter(fmt)
+        formatter = logging.Formatter(fmt, datefmt='%Y-%m-%d %H:%M:%S')
  
     handler.setFormatter(formatter)
     g_logger.addHandler(handler)
@@ -168,8 +180,15 @@ def init_logger(name=None):
     g_logger.setLevel(logging.DEBUG)
 
 
-def set_logger(name=None, filename=None, mode='a', level='DEBUG:DEBUG',
-               fmt='[%(levelname)s] %(asctime)s %(message)s',
+def disable(level):
+    """Disable all logging calls of severity 'level' and below."""
+    logging.disable(level)
+
+
+def set_logger(name=None, filename=None, mode='a', level='NOTSET:NOTSET',
+               fmt=
+               '%(asctime)s %(filename)s:%(lineno)d [PID:%(process)-5d THD:%(thread)-5d %(levelname)-7s] %(message)s',
+               # fmt='[%(levelname)s] %(asctime)s %(message)s',
                backup_count=5, limit=20480, when=None, with_filehandler=True):
     """Configure the global logger."""
     level = level.split(':')
@@ -194,12 +213,11 @@ def import_log_funcs():
     global g_logger
  
     curr_mod = sys.modules[__name__]
-    log_funcs = ['debug', 'info', 'warning', 'error', 'critical',
-                 'exception']
- 
-    for func_name in log_funcs:
+
+    for func_name in _logging_funcs:
         func = getattr(g_logger, func_name)
         setattr(curr_mod, func_name, func)
+
  
 # Set a default logger
-set_logger(name='root', with_filehandler=False)
+set_logger(with_filehandler=False)

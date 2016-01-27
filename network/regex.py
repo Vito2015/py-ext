@@ -11,7 +11,6 @@
 __all__ = ['email_match', 'email_pattern']
 
 import re
-from network import log
 
 # 表达式,如果匹配成功 这返回Match对象,否则返回None
 # bill.gates@microsoft.com
@@ -32,6 +31,7 @@ def email_match(string):
         return None
 
 if __name__ == '__main__':
+    from network import log
     L = ['someone@gmail.com',
          'bill.gates@microsoft.com',
          'bill.ga.tes@microsoft.com',
@@ -43,7 +43,7 @@ if __name__ == '__main__':
         res = email_match(email)
         if res:
             log.debug('Match success: %s' % email)
-            log.info('\tEmailName: %s, EmailServer: %s' % (res[0], res[1]))
+            log.info('EmailName: %s, EmailServer: %s' % (res[0], res[1]))
         else:
             log.error('Match failed: %s' % email)
     log.info('Done.')
