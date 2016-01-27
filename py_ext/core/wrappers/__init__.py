@@ -13,7 +13,3 @@ from .accepts import accepts
 from .timethis import timethis
 
 __all__ = ['singleton', 'accepts', 'timethis']
-
-import py_ext.core.log as log
-
-log.set_logger(name='py_ext.core.wrappers', with_filehandler=False)

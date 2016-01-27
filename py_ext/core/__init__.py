@@ -8,6 +8,3 @@
     :license: GNU, see LICENSE for more details.
 """
 
-import py_ext.core.log as log
-
-log.set_logger(name='py_ext.core', with_filehandler=False)

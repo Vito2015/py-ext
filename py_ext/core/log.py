@@ -48,6 +48,9 @@
         # Change default log formatter
         log.set_logger(fmt = '[%(levelname)s] %(message)s'
 
+    Notice: Default logger has non-filehandler, if you need log into file, please call:
+            log.set_logger(filename='filename.log', with_filehandler=True)
+
     :copyright: (c) 2016 by Vito.
     :license: GNU, see LICENSE for more details.
 """
