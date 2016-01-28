@@ -2,7 +2,7 @@
 """
     setup
     ~~~~~~~~~~~~
-    py_ext package setup
+    pyext package setup
 
     :copyright: (c) 2016 by Vito.
     :license: GNU, see LICENSE for more details.
@@ -11,7 +11,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='py_ext',
+    name='pyext',
     version='1.0',
     description='python extension package',
     author='Vito',

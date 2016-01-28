@@ -1,8 +1,8 @@
 # coding: utf-8
 """
-    py_ext.core.wrappers.accepts
+    pyext.core.wrappers.accepts
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    py_ext core wrappers accepts wrapper
+    pyext core wrappers accepts wrapper
 
     :copyright: (c) 2016 by Vito.
     :license: GNU, see LICENSE for more details.

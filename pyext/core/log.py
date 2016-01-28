@@ -1,6 +1,6 @@
 # coding: utf-8
 """
-    py_ext.core.log
+    pyext.core.log
     ~~~~~~~~~~~~~~~
     Implements a simple log library.
 

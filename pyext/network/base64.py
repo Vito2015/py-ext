@@ -1,8 +1,8 @@
 # coding: utf-8
 """
-    py_ext.network.base64
+    pyext.network.base64
     ~~~~~~~~~~~~~~~~~~~~~
-    py_ext network base64
+    pyext network base64
 
     :copyright: (c) 2016 by Vito.
     :license: GNU, see LICENSE for more details.

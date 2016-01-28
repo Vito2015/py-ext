@@ -1,8 +1,8 @@
 # coding: utf-8
 """
-    py_ext.network.regex
+    pyext.network.regex
     ~~~~~~~~~~~~~~~~~~~~
-    py_ext network regex
+    pyext network regex
 
     :copyright: (c) 2016 by Vito.
     :license: GNU, see LICENSE for more details.
@@ -31,7 +31,7 @@ def email_match(string):
         return None
 
 if __name__ == '__main__':
-    from py_ext.core import log
+    from pyext.core import log
 
     L = ['someone@gmail.com',
          'bill.gates@microsoft.com',

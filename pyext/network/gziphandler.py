@@ -1,8 +1,8 @@
 # coding: utf-8
 """
-    py_ext.network.gziphandler
+    pyext.network.gziphandler
     ~~~~~~~~~~~~~~~~~~~~~~~~~~
-    py_ext network gziphandler
+    pyext network gziphandler
 
     :copyright: (c) 2016 by Vito.
     :license: GNU, see LICENSE for more details.

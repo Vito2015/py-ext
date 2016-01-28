@@ -1,8 +1,8 @@
 # coding: utf-8
 """
-    py_ext.core.itertools
+    pyext.core.itertools
     ~~~~~~~~~~~~~~~~~~~~~
-    py_ext core string extension tools
+    pyext core string extension tools
 
     :copyright: (c) 2016 by Vito.
     :license: GNU, see LICENSE for more details.
@@ -11,7 +11,7 @@
 __all__ = ['unpack', 'merge']
 
 
-from py_ext.core.wrappers import accepts
+from pyext.core.wrappers import accepts
 
 
 @accepts(iterable=('__iter__', None), count=int)

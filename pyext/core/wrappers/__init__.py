@@ -1,8 +1,8 @@
 # coding: utf-8
 """
-    py_ext.core.wrappers
+    pyext.core.wrappers
     ~~~~~~~~~~~~~~~~~~~~
-    py_ext core wrappers packages
+    pyext core wrappers packages
 
     :copyright: (c) 2016 by Vito.
     :license: GNU, see LICENSE for more details.
