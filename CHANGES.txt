@@ -3,5 +3,9 @@ pyextend change log
 
 Here you can see the full list of changes between each pyextend release.
 
-Version 1.0
+Version 0.1.1
 -----------
+
+Version 0.1.2
+-------------
+- fixed setup.py tests_require
