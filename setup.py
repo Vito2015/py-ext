@@ -7,10 +7,10 @@
     :copyright: (c) 2016 by Vito.
     :license: GNU, see LICENSE for more details.
 """
-import sys
+# import sys
 import codecs
 from setuptools import setup, find_packages
-from setuptools.command.test import test as TestCommand
+# from setuptools.command.test import test as TestCommand
 
 import pyextend
 
@@ -29,24 +29,24 @@ def read_lines(*fnames, **kwargs):
     return buf
 
 
-class PyTest(TestCommand):
-    def finalize_options(self):
-        TestCommand.finalize_options(self)
-        self.test_args = []
-        self.test_suite = True
-
-    def run_tests(self):
-        import pytest
-        errcode = pytest.main(self.test_args)
-        sys.exit(errcode)
+# class PyTest(TestCommand):
+#     def finalize_options(self):
+#         TestCommand.finalize_options(self)
+#         self.test_args = []
+#         self.test_suite = True
+#
+#     def run_tests(self):
+#         import pytest
+#         errcode = pytest.main(self.test_args)
+#         sys.exit(errcode)
 
 
 setup(
     name='pyextend',
     version=pyextend.__version__,
-    tests_require=['pytest'],
+    # tests_require=['pytest'],
     # install_requires=read_lines('requirements.txt'),
-    install_requires=[],
+    # install_requires=['pytest>=2.8.7'],
     description='the python extend lib',
     author='Vito',
     author_email='vito2015@live.com',
@@ -54,10 +54,10 @@ setup(
     download_url='https://github.com/Vito2015/pyextend.git',
     license='GNU',
     packages=find_packages(),
+    # packages=['pyextend'],
     keywords='python extension package',
-    long_description=read_string('README.rst', 'CHANGES.txt'),
+    long_description=read_string('README'),
     platforms='any',
-    cmdclass={'test': PyTest},
     zip_safe=True,
     classifiers=['Development Status :: 4 - Beta',
                  'Intended Audience :: Developers',
@@ -66,7 +66,5 @@ setup(
                  'Programming Language :: Python',
                  'Topic :: Software Development :: Libraries',
                  ],
-    extras_require={
-        'testing': ['pytest']
-    }
+
 )
