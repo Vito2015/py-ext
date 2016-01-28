@@ -1,8 +1,8 @@
 # coding: utf-8
 """
-    pyext.core.fieldref
+    pyextend.core.fieldref
     ~~~~~~~~~~~~~~~~~~~~
-    pyext core fieldref lib
+    pyextend core fieldref lib
 
     :copyright: (c) 2016 by Vito.
     :license: GNU, see LICENSE for more details.

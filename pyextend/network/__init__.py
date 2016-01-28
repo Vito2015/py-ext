@@ -1,10 +1,9 @@
 # coding: utf-8
 """
-    pyext.core
+    pyextend.core
     ~~~~~~~~~~~
-    pyext core package
+    pyextend network package
 
     :copyright: (c) 2016 by Vito.
     :license: GNU, see LICENSE for more details.
 """
-

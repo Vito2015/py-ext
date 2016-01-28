@@ -1,8 +1,8 @@
 # coding: utf-8
 """
-    pyext.core.wrappers.timethis
+    pyextend.core.wrappers.timethis
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    pyext core wrappers timethis wrapper
+    pyextend core wrappers timethis wrapper
 
     :copyright: (c) 2016 by Vito.
     :license: GNU, see LICENSE for more details.

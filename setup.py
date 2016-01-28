@@ -1,24 +1,70 @@
 # coding: utf-8
 """
     setup
-    ~~~~~~~~~~~~
-    pyext package setup
+    ~~~~~
+    pyextend package setup
 
     :copyright: (c) 2016 by Vito.
     :license: GNU, see LICENSE for more details.
 """
-
+import sys
+import codecs
 from setuptools import setup, find_packages
+from setuptools.command.test import test as TestCommand
+
+import pyextend
+
+
+def read_string(*fnames, **kwargs):
+    buf = read_lines(*fnames, **kwargs)
+
+    return ''.join(buf)
+
+
+def read_lines(*fnames, **kwargs):
+    encoding = kwargs.get('encoding', 'utf-8')
+    buf = []
+    for fname in fnames:
+        buf.extend(codecs.open(fname, encoding=encoding).readlines())
+    return buf
+
+
+class PyTest(TestCommand):
+    def finalize_options(self):
+        TestCommand.finalize_options(self)
+        self.test_args = []
+        self.test_suite = True
+
+    def run_tests(self):
+        import pytest
+        errcode = pytest.main(self.test_args)
+        sys.exit(errcode)
+
 
 setup(
-    name='pyext',
-    version='1.0',
-    description='python extension package',
+    name='pyextend',
+    version=pyextend.__version__,
+    install_requires=read_lines('requirements.txt'),
+    description='the python extend lib',
     author='Vito',
     author_email='vito2015@live.com',
-    url='https://github.com/Vito2015/pyext.git',
-    download_url='https://github.com/Vito2015/pyext.git',
+    url='https://github.com/Vito2015/pyextend.git',
+    download_url='https://github.com/Vito2015/pyextend.git',
     license='GNU',
     packages=find_packages(),
-
+    keywords='python extension package',
+    long_description=read_string('README.rst', 'CHANGES.txt'),
+    platforms='any',
+    cmdclass={'test': PyTest},
+    zip_safe=True,
+    classifiers=['Development Status :: 1 - Alpha',
+                 'Intended Audience :: Developers',
+                 'License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)',
+                 'Operating System :: OS Independent',
+                 'Programming Language :: Python',
+                 'Topic :: Software Development :: Libraries',
+                 ],
+    extras_require={
+        'testing': ['pytest']
+    }
 )

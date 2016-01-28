@@ -1,8 +1,8 @@
 # coding: utf-8
 """
-    pyext.core.wrappers.singleton
+    pyextend.core.wrappers.singleton
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    pyext core wrappers singleton wrapper
+    pyextend core wrappers singleton wrapper
 
     :copyright: (c) 2016 by Vito.
     :license: GNU, see LICENSE for more details.

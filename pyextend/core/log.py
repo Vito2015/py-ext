@@ -1,6 +1,6 @@
 # coding: utf-8
 """
-    pyext.core.log
+    pyextend.core.log
     ~~~~~~~~~~~~~~~
     Implements a simple log library.
 
