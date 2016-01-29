@@ -4,8 +4,11 @@
     ~~~~~
     pyextend package setup
 
+    use $ python setup.py register sdist upload
+    to upload to the http://pypi.python.org/pypi
+
     :copyright: (c) 2016 by Vito.
-    :license: GNU, see LICENSE for more details.
+    :license: GNU, sepythoe LICENSE for more details.
 """
 # import sys
 import codecs

@@ -11,7 +11,7 @@
 import functools
 
 
-def accepts(exception=ValueError, **types):
+def accepts(exception=TypeError, **types):
     """
     A wrapper of function for checking function parameters type
 
@@ -69,20 +69,3 @@ def accepts(exception=ValueError, **types):
             return f(*args, **kwargs)
         return new_f
     return check_accepts
-
-
-if __name__ == '__main__':
-    def test_accepts():
-        @accepts(a=int, b=('__iter__', None), c=str)
-        def test(a, b=None, c=None):
-            print('test accepts OK')
-
-        test(13, b=[], c='abc')
-
-        @accepts(a=int, b=('__iter__', None), c=str)
-        def test2(a, b=None, c=None):
-            print('test2 accepts OK')
-
-        test2(13, b=[], c='abc')
-        test2(13, b=None, c='abc')
-    test_accepts()
