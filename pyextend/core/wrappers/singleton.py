@@ -18,23 +18,3 @@ def singleton(cls, *args, **kwargs):
             instance[cls] = cls(*args, **kwargs)
         return instance[cls]
     return _singleton
-
-
-if __name__ == '__main__':
-    import unittest
-
-    class MyTestCase(unittest.TestCase):
-        def test_singleton(self):
-
-            @singleton
-            class SObj(object):
-                pass
-
-            a = SObj()
-            b = SObj()
-            self.assertEqual(id(a), id(b))
-            self.assertEqual(a, b)
-            a.A = 1
-            self.assertEqual(b.A, 1)
-
-    unittest.main()

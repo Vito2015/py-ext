@@ -1,4 +1,12 @@
+# coding: utf-8
+"""
+    tests.test_core_wrappers_accepts
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    pyextend.core.wrappers.accepts test case
 
+    :copyright: (c) 2016 by Vito.
+    :license: GNU, see LICENSE for more details.
+"""
 import pytest
 from pyextend.core.wrappers.accepts import accepts
 

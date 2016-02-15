@@ -32,33 +32,3 @@ class NonNegative(object):
         if value < 0:
             raise ValueError("Negative value not allowed: {}".format(value))
         self._data[instance] = value
-        
-
-if __name__ == '__main__':
-    class Person(object):
-        age = NonNegative(1)
-        score = NonNegative(0)
-
-        def __init__(self, name, age, score):
-            self.name = name
-            self.age = age
-            self.score = score
-
-        def hello(self):
-            print("hi, my name is {}, i'm {} years old."
-                  .format(self.name, self.age))
-
-    import unittest
-
-    class TestPerson(unittest.TestCase):
-       def test_nonnegative(self):
-            a = Person('jim', 10, 100)
-            self.assertEqual(a.age, 10)
-            self.assertEqual(a.score, 100)
-            try:
-                a.age = -1
-            except ValueError:
-                self.assertEqual(a.age, 10)
-
-
-    unittest.main()
