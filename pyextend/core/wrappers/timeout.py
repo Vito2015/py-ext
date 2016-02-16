@@ -29,12 +29,12 @@ def timeout(seconds, error_message="Timeout Error: the command 30s have not fini
             global result
             signal.signal(signal.SIGALRM, _handle_timeout)
             signal.alarm(seconds)
-            signal.getsignal()
+
             try:
                 result = func(*args, **kwargs)
             finally:
                 signal.alarm(0)
                 return result
         return functools.wraps(func)(wrapper)
-        # return functools.wraps(func)(sys.platform(sys.LINUX_LIKE, case_true_wraps=wrapper, case_false_result=func))
+
     return decorated
