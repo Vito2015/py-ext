@@ -32,11 +32,18 @@ def timeout(seconds, error_message=None):
             signal.signal(signal.SIGALRM, _handle_timeout)
             signal.alarm(seconds)
 
+            # change to also raise TimeoutError
+            # try:
+            #     result = func(*args, **kwargs)
+            # finally:
+            #     signal.alarm(0)
+            #     return result
             try:
                 result = func(*args, **kwargs)
+            except TimeoutError as e:
+                raise e
             finally:
                 signal.alarm(0)
-                return result
         return functools.wraps(func)(wrapper)
 
     return decorated

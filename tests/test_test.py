@@ -46,15 +46,15 @@ import pytest
 #     assert nums == [(x, 10*x) for x in range(11)]
 #
 
-from pyextend.core.wrappers import sys
-
-
-def test_system():
-    @sys.platform(sys.WINDOWS)
-    def _f():
-        a = 1
-        return a
-    assert _f() == 1
+# from pyextend.core.wrappers import sys
+#
+#
+# def test_system():
+#     @sys.platform(sys.WINDOWS)
+#     def _f():
+#         a = 1
+#         return a
+#     assert _f() == 1
 
 
 # def timeout(error_message=None):

@@ -8,6 +8,9 @@
     :license: GNU, see LICENSE for more details.
 """
 import pytest
+import platform
+
+PF = platform.system()
 
 from pyextend.core.wrappers.timeout import timeout
 
@@ -20,10 +23,14 @@ def test_timeout():
         time.sleep(sleep_time)
         return a
 
-    a = slowfunc(1)
-    assert a == 1
-    a = slowfunc(3)
-    assert a == 1
+    assert slowfunc(0) == 1
+    assert slowfunc(1) == 1
+
+    if PF == 'Windows':
+        assert slowfunc(3) == 1
+    else:
+        with pytest.raises(TimeoutError):
+            slowfunc(3)
 
 if __name__ == '__main__':
     pytest.main(__file__)
