@@ -44,6 +44,7 @@ def timeout(seconds, error_message=None):
                 raise e
             finally:
                 signal.alarm(0)
+                return result
         return functools.wraps(func)(wrapper)
 
     return decorated
