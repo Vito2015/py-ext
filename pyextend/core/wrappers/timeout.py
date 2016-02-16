@@ -18,15 +18,15 @@ def timeout(seconds, error_message=None):
     """Timeout checking just for Linux-like platform, not working in Windows platform."""
     def decorated(func):
         result = ""
+        errmsg = error_message
 
         def _handle_timeout(signum, frame):
-            global error_message
-            error_message = 'TimeoutError: the action <%s> is timeout, %s seconds!' % (func.__name__, seconds) \
-                if not error_message else error_message
+            global errmsg
+            errmsg = errmsg or 'TimeoutError: the action <%s> is timeout, %s seconds!' % (func.__name__, seconds)
 
             global result
-            result = error_message
-            raise TimeoutError(error_message)
+            result = errmsg
+            raise TimeoutError(errmsg)
 
         @sys.platform(sys.UNIX_LIKE, case_false_wraps=func)
         def wrapper(*args, **kwargs):
