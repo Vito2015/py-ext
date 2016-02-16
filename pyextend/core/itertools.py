@@ -11,7 +11,8 @@
 __all__ = ['unpack', 'merge']
 
 
-from pyextend.core.wrappers import accepts
+# from pyextend.core.wrappers import accepts
+from .wrappers import accepts
 
 
 @accepts(iterable='__iter__', count=int)

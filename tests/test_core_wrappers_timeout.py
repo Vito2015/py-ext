@@ -13,14 +13,17 @@ from pyextend.core.wrappers.timeout import timeout
 
 
 def test_timeout():
-    @timeout(5)
+    @timeout(2)
     def slowfunc(sleep_time):
         a = 1
         import time
         time.sleep(sleep_time)
         return a
 
-    slowfunc(3)
+    a = slowfunc(1)
+    assert a == 1
+    a = slowfunc(3)
+    assert a == 1
 
 if __name__ == '__main__':
     pytest.main(__file__)

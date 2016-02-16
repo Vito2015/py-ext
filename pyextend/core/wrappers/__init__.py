@@ -11,5 +11,7 @@
 from .singleton import singleton
 from .accepts import accepts
 from .timethis import timethis
+from .timeout import timeout
+from . import system as sys
 
-__all__ = ['singleton', 'accepts', 'timethis']
+__all__ = ['singleton', 'accepts', 'timethis', 'timeout', 'sys']
