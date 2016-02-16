@@ -29,8 +29,8 @@ def test_timeout():
     if PF == 'Windows':
         assert slowfunc(3) == 1
     else:
-        with pytest.raises(TimeoutError):
-            slowfunc(3)
+        assert slowfunc(3) is None
+        assert slowfunc(10) is None
 
 if __name__ == '__main__':
     pytest.main(__file__)
