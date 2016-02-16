@@ -23,7 +23,7 @@ def timeout(seconds, error_message=None):
         def _handle_timeout(signum, frame):
             errmsg = error_message or 'TimeoutError: The action <%s> is timeout!' % func.__name__
             log.warning(errmsg)
-            log.warning("The action <%s> returns None value. check the None result before it using.")
+            log.warning("The action <%s> returns None value. check the None result before it using." % func.__name__)
             global result
             result = None
             raise TimeoutError(errmsg)
