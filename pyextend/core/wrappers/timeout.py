@@ -14,12 +14,16 @@ from . import system as sys
 # class TimeoutError(Exception): pass
 
 
-def timeout(seconds, error_message="Timeout Error: the command 30s have not finished."):
+def timeout(seconds, error_message=None):
     """Timeout checking just for Linux-like platform, not working in Windows platform."""
     def decorated(func):
         result = ""
 
         def _handle_timeout(signum, frame):
+            global error_message
+            error_message = 'TimeoutError: the action <%s> is timeout, %s seconds!' % (func.__name__, seconds) \
+                if not error_message else error_message
+
             global result
             result = error_message
             raise TimeoutError(error_message)
