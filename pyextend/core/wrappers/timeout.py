@@ -18,11 +18,9 @@ def timeout(seconds, error_message=None):
     """Timeout checking just for Linux-like platform, not working in Windows platform."""
     def decorated(func):
         result = ""
-        errmsg = error_message
 
         def _handle_timeout(signum, frame):
-            global errmsg
-            errmsg = errmsg or 'TimeoutError: the action <%s> is timeout, %s seconds!' % (func.__name__, seconds)
+            errmsg = error_message or 'TimeoutError: the action <%s> is timeout, %s seconds!' % (func.__name__, seconds)
 
             global result
             result = errmsg

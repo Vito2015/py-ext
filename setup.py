@@ -47,7 +47,7 @@ def read_lines(*fnames, **kwargs):
 setup(
     name='pyextend',
     version=pyextend.__version__,
-    tests_require=['pytest'],
+    # tests_require=['pytest'],
     # install_requires=read_lines('requirements.txt'),
     # install_requires=['pytest>=2.8.7'],
     description='the python extend lib',

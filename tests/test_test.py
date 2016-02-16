@@ -56,5 +56,40 @@ def test_system():
         return a
     assert _f() == 1
 
+
+# def timeout(error_message=None):
+#     import functools
+#
+#     def decorated(func):
+#         result = ""
+#
+#         def _handle_timeout():
+#
+#             errmsg = error_message or 'TimeoutError: the action <%s> is timeout, %s seconds!' % (func.__name__, 1)
+#
+#             global result
+#             result = errmsg
+#             raise TimeoutError(errmsg)
+#
+#         def wrapper(*args, **kwargs):
+#             global result
+#             _handle_timeout()
+#             try:
+#                 result = func(*args, **kwargs)
+#             finally:
+#
+#                 return result
+#         return functools.wraps(func)(wrapper)
+#
+#     return decorated
+#
+#
+# def test_global():
+#     @timeout()
+#     def f():
+#         return 1
+#
+#     assert f() == 1
+
 if __name__ == '__main__':
     pytest.main(__file__)
