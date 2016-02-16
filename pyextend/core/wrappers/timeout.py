@@ -10,6 +10,7 @@
 import signal
 import functools
 from . import system as sys
+from pyextend.core import log
 
 # class TimeoutError(Exception): pass
 
@@ -20,8 +21,9 @@ def timeout(seconds, error_message=None):
         result = ""
 
         def _handle_timeout(signum, frame):
-            errmsg = error_message or 'TimeoutError: the action <%s> is timeout, %s seconds!' % (func.__name__, seconds)
-
+            errmsg = error_message or 'TimeoutError: The action <%s> is timeout!' % func.__name__
+            log.warning(errmsg)
+            log.warning("The action <%s> returns None value. check the None result before it using.")
             global result
             result = None
             raise TimeoutError(errmsg)
