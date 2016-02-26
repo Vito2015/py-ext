@@ -20,6 +20,7 @@ def isprime(n):
     if not n & 1:
         return False
 
+    # 在一般领域, 对正整数n, 如果用2 到 sqrt(n) 之间所有整数去除, 均无法整除, 则n为质数.
     for x in range(3, int(n ** 0.5)+1, 2):
         if n % x == 0:
             return False
