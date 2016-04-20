@@ -55,15 +55,13 @@
     :license: GNU, see LICENSE for more details.
 """
 
-_logging_funcs = ['debug', 'info', 'warning', 'error', 'critical', 'exception']
-__all__ = ['set_logger', 'disable'] + _logging_funcs
-
-
 import os
 import sys
 import logging
 import logging.handlers
 
+_logging_funcs = ['debug', 'info', 'warning', 'error', 'critical', 'exception']
+__all__ = ['set_logger', 'disable'] + _logging_funcs
 
 # logging levels
 CRITICAL = logging.CRITICAL
@@ -149,7 +147,10 @@ def add_filehandler(level, fmt, filename, mode, backup_count, limit, when):
         filename = getattr(sys.modules['__main__'], '__file__', 'log.py')
         filename = os.path.basename(filename.replace('.py', '.log'))
         filename = os.path.join('/tmp', filename)
- 
+
+    if not os.path.exists(os.path.dirname(filename)):
+        os.mkdir(os.path.dirname(filename))
+
     kwargs['filename'] = filename
  
     # Choose the filehandler based on the passed arguments
