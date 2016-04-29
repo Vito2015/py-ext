@@ -8,13 +8,16 @@
     :license: GNU, see LICENSE for more details.
 """
 
+import sys
 import time
 import functools
 
 __all__ = ['timethis']
 
-
-_time_perf_counter = time.perf_counter
+if sys.version_info < (3, 3):
+    _time_perf_counter = time.clock 
+else:
+    _time_perf_counter = time.perf_counter
 
 
 def timethis(func):
