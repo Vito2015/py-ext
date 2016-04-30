@@ -23,12 +23,7 @@ def test_nonnegative():
             self.age = age
             self.score = score
 
-        def hello(self):
-            print("hi, my name is {}, i'm {} years old."
-                  .format(self.name, self.age))
-
     a = Person('jim', 10, 100)
-    a.hello()
     assert a.age == 10
     assert a.score == 100
     with pytest.raises(ValueError):

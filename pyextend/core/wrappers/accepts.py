@@ -9,6 +9,7 @@
 """
 
 import functools
+from .system import version_info
 
 
 def accepts(exception=TypeError, **types):
@@ -45,7 +46,12 @@ def accepts(exception=TypeError, **types):
         except TypeError:
             pass
         if isinstance(type_or_funcname, str):
-            is_func_like = hasattr(v, type_or_funcname)
+            if type_or_funcname == '__iter__' and isinstance(v, str) and version_info < (3,):
+                # at py 2.x, str object has non `__iter__` attribute,
+                # str object can use like `for c in s`, bcz `iter(s)` returns an iterable object.
+                is_func_like = True
+            else:
+                is_func_like = hasattr(v, type_or_funcname)
 
         return is_type_instance or is_func_like
 

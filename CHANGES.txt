@@ -4,6 +4,11 @@ pyextend change log
 Here you can see the full list of changes between each pyextend release.
 
 
+Version 0.1.24
+-----------
+- fixed some bugs, then support py2.x.
+
+
 Version 0.1.21
 -----------
 - fixed timeout test case bug on linux
